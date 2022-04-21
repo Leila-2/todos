@@ -2,18 +2,12 @@ import styled from "styled-components";
 
 export const StyledTodoEd = styled.form`
   margin-top: 100px;
-  border-bottom: 1px dashed #979797;
-  transition-property: border;
-  transition-duration: 500ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 0.7px dashed #979797;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  :focus,
-  :hover {
-    border-color: #ea9215;
-  }
   input {
     width: 80%;
     height: 47px;
@@ -33,8 +27,6 @@ export const StyledTodoEd = styled.form`
     font-weight: 700;
     padding: 10px 15px;
     border-radius: 5px;
-    /* width: 130px;
-    height: 45px; */
 
     transition-property: box-shadow;
     transition-duration: 500ms;
@@ -68,7 +60,7 @@ export const StyledTodoList = styled.ul`
   p {
     margin-left: 20px;
     font-weight: 300;
-    font-size: 27px;
+    font-size: 25px;
     line-height: 1.2;
   }
 
@@ -91,5 +83,12 @@ export const StyledTodoList = styled.ul`
     width: 40px;
     height: 40px;
     fill: #303841;
+
+    transition-property: margin-bottom;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    :hover {
+      margin-bottom: 30px;
+    }
   }
 `;

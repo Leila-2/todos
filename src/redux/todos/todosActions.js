@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getAllTodos, createTodo } from "../../services/api";
+import { getAllTodos, createTodo, removeTodo } from "../../services/api";
 //removeTodo, updateStatus, updateTodo, createTodo
 
 export const getTodos = createAsyncThunk(
@@ -23,6 +23,20 @@ export const addTodo = createAsyncThunk(
       const todo = await createTodo(item);
       console.log(todo, "xxxx");
       return todo;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const deleteTodo = createAsyncThunk(
+  "todos/removeTodo",
+  async (id, { rejectWithValue }) => {
+    try {
+      console.log(id, "id");
+      const delTodo = await removeTodo(id);
+      console.log(delTodo, "delete todo");
+      return delTodo;
     } catch (error) {
       return rejectWithValue(error);
     }

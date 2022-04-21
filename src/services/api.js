@@ -5,7 +5,7 @@ axios.defaults.baseURL = "https://todos-b.herokuapp.com/api";
 export async function getAllTodos() {
   try {
     const { data } = await axios.get("/todos");
-    // console.log(data);
+    console.log(data);
     return data;
   } catch (error) {
     console.log(error);
@@ -41,7 +41,7 @@ export async function updateStatus(id, done) {
 
 export async function removeTodo(id) {
   try {
-    const res = await axios.patch(`/todos/${id}`);
+    const res = await axios.delete(`/todos/${id}`);
     return res;
   } catch (error) {
     console.log(error);
