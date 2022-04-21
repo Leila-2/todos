@@ -17,10 +17,12 @@ export const getTodos = createAsyncThunk(
 
 export const addTodo = createAsyncThunk(
   "todos/createTodos",
-  async (todo, { rejectWithValue }) => {
+  async (item, { rejectWithValue }) => {
     try {
-      const todos = await createTodo(todo);
-      return todos;
+      console.log(item, "item");
+      const todo = await createTodo(item);
+      console.log(todo, "xxxx");
+      return todo;
     } catch (error) {
       return rejectWithValue(error);
     }

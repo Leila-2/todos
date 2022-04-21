@@ -28,4 +28,17 @@ img {
   max-width: 100%;
   display: block;
 }
+input{
+   border:none;
+    background:none;
+    padding:0;
+      outline: none;
+}
+button{
+   padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+    outline: none;
+}
 `;

@@ -1,12 +1,13 @@
 import { createReducer, combineReducers } from "@reduxjs/toolkit";
 import { getTodos, addTodo } from "./todosActions";
 
+//const initialState = [];
+
 const entities = createReducer([], {
-  [getTodos.fulfilled]: (state, { payload }) => {
-    return { ...state, todos: payload };
-  },
+  [getTodos.fulfilled]: (_, action) => action.payload,
   [addTodo.fulfilled]: (state, { payload }) => {
-    return { ...state, todo: payload };
+    console.log(payload);
+    return [...state, payload];
   },
 });
 

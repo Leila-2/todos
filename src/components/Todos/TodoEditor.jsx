@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { todosActions } from "../../redux/todos";
 import { useDispatch } from "react-redux";
+import { StyledTodoEd } from "./Todo.styled";
 
 export default function TodoEditor() {
   const dispatch = useDispatch();
@@ -24,7 +25,14 @@ export default function TodoEditor() {
         draggable: true,
       });
     }
+
     dispatch(todosActions.addTodo(message));
+    setMessage("");
+
+    // Просто диспатч происходит слишком быстро, поэтому обернула в сеттаймаут
+    setTimeout(() => {
+      dispatch(todosActions.getTodos());
+    }, 1000);
   };
 
   const handleKeyUp = (event) => {
@@ -35,7 +43,7 @@ export default function TodoEditor() {
   };
 
   return (
-    <form className="TodoEditor" onSubmit={handleSubmit}>
+    <StyledTodoEd className="TodoEditor" onSubmit={handleSubmit}>
       <input
         autoComplete="off"
         autoFocus
@@ -47,6 +55,6 @@ export default function TodoEditor() {
         onChange={handleChange}
       />
       <button type="submit">Add todo</button>
-    </form>
+    </StyledTodoEd>
   );
 }
