@@ -41,8 +41,8 @@ export async function updateStatus(id, done) {
 
 export async function removeTodo(id) {
   try {
-    const res = await axios.delete(`/todos/${id}`);
-    return res;
+    await axios.delete(`/todos/${id}`);
+    return id;
   } catch (error) {
     console.log(error);
   }

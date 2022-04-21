@@ -47,7 +47,7 @@ export const StyledTodoList = styled.ul`
     display: flex;
     align-items: center;
 
-    border-bottom: 1px dashed #979797;
+    border-bottom: 0.7px dashed #979797;
     color: #ffffff;
     :not(last-child) {
       margin-top: 30px;

@@ -9,7 +9,7 @@ const entities = createReducer([], {
     return [...state, payload];
   },
   [deleteTodo.fulfilled]: (state, { payload }) =>
-    state.filter(({ id }) => id !== console.log(payload)),
+    state.filter(({ id }) => id !== payload),
 });
 
 const error = createReducer(null, {

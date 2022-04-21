@@ -19,7 +19,10 @@ export default function TodoList() {
   //   return !check;
   // };
 
-  const onDeleteTodo = (id) => dispatch(todosActions.deleteTodo(id));
+  const onDeleteTodo = (id) => {
+    dispatch(todosActions.deleteTodo(id));
+    dispatch(todosActions.getTodos());
+  };
   return (
     <StyledTodoList>
       {todos?.map((todo) => (
