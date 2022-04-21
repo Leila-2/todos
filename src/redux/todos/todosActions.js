@@ -34,9 +34,8 @@ export const deleteTodo = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       console.log(id, "id");
-      const delTodo = await removeTodo(id);
-      console.log(delTodo, "delete todo");
-      return delTodo;
+      await removeTodo(id);
+      return id;
     } catch (error) {
       return rejectWithValue(error);
     }
