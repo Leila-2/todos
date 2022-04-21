@@ -1,5 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getAllTodos, createTodo, removeTodo } from "../../services/api";
+import {
+  getAllTodos,
+  createTodo,
+  removeTodo,
+  updateStatus,
+} from "../../services/api";
 //removeTodo, updateStatus, updateTodo, createTodo
 
 export const getTodos = createAsyncThunk(
@@ -36,6 +41,21 @@ export const deleteTodo = createAsyncThunk(
       console.log(id, "id");
       await removeTodo(id);
       return id;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const updateCheckbox = createAsyncThunk(
+  "todos/updateStatus",
+  async (data, { rejectWithValue }) => {
+    const { id, done } = data;
+    try {
+      console.log(id, "Its an id", done, "done");
+      await updateStatus(id, done);
+      console.log(done, "Its a done");
+      return done;
     } catch (error) {
       return rejectWithValue(error);
     }

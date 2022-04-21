@@ -21,13 +21,31 @@ export default function TodoList() {
 
   const onDeleteTodo = (id) => {
     dispatch(todosActions.deleteTodo(id));
-    dispatch(todosActions.getTodos());
   };
+  const onCheckedTodo = (id, done) => {
+    console.log(id, "id", done, "done");
+    dispatch(todosActions.updateCheckbox(id, done));
+  };
+
   return (
     <StyledTodoList>
       {todos?.map((todo) => (
         <li key={todo._id}>
-          <input type="checkbox" name="checkbox" />
+          <input
+            type="checkbox"
+            checked={todo.done}
+            onChange={() => {
+              onCheckedTodo(todo._id, todo.done);
+            }}
+          />
+
+          <button
+            onClick={() => {
+              onCheckedTodo(todo._id, todo.done);
+            }}
+          >
+            Check
+          </button>
           <Icon />
 
           <p>{todo.name}</p>

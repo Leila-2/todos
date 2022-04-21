@@ -1,5 +1,5 @@
 import { createReducer, combineReducers } from "@reduxjs/toolkit";
-import { getTodos, addTodo, deleteTodo } from "./todosActions";
+import { getTodos, addTodo, deleteTodo, updateCheckbox } from "./todosActions";
 
 //const initialState = [];
 
@@ -9,7 +9,12 @@ const entities = createReducer([], {
     return [...state, payload];
   },
   [deleteTodo.fulfilled]: (state, { payload }) =>
-    state.filter(({ id }) => id !== payload),
+    state.filter(({ _id }) => _id !== payload),
+  [updateCheckbox.fulfilled]: (state, { payload }) =>
+    // console.log('Its a payload', payload)
+    state.map((todo) =>
+      todo._id === payload ? { ...todo, done: !todo.done } : todo
+    ),
 });
 
 const error = createReducer(null, {
@@ -19,6 +24,8 @@ const error = createReducer(null, {
   [addTodo.pending]: () => null,
   [deleteTodo.rejected]: (_, action) => action.payload,
   [deleteTodo.pending]: () => null,
+  [updateCheckbox.rejected]: (_, action) => action.payload,
+  [updateCheckbox.pending]: () => null,
 });
 
 export default combineReducers({

@@ -37,19 +37,21 @@ export default function TodoEditor() {
 
   const handleKeyUp = (event) => {
     if (event.keyCode === 13) {
-      dispatch(todosActions.addTodo(message));
       console.log("Key Up");
     }
   };
 
   return (
-    <StyledTodoEd className="TodoEditor" onSubmit={handleSubmit}>
+    <StyledTodoEd
+      className="TodoEditor"
+      onKeyUp={handleKeyUp}
+      onSubmit={handleSubmit}
+    >
       <input
         autoComplete="off"
         autoFocus
         placeholder="What needs to be done ?"
         maxLength="64"
-        onKeyUp={handleKeyUp}
         type="text"
         value={message}
         onChange={handleChange}
