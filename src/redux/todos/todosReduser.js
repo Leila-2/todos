@@ -10,7 +10,9 @@ import {
 //const initialState = [];
 
 const entities = createReducer([], {
-  [getTodos.fulfilled]: (_, action) => action.payload,
+  [getTodos.fulfilled]: (state, action) => {
+    state.todos = [...state, action.payload];
+  },
   [addTodo.fulfilled]: (state, { payload }) => {
     return [...state, payload];
   },
