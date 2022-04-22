@@ -33,9 +33,9 @@ export async function updateTodo(id, todo) {
 export async function updateStatus(id, done) {
   try {
     console.log("Its done", done, "Its an id", id);
-    await axios.patch(`/todos/${id}`, { done: !done });
-    console.log(done, "res done");
-    return done;
+    const { data } = await axios.patch(`/todos/${id}`, { done: done });
+    console.log(data, "res res");
+    return data;
   } catch (error) {
     console.log(error);
   }

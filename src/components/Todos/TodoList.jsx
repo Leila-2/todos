@@ -37,7 +37,7 @@ export default function TodoList() {
               checked={todo.done}
               // name="done"
               onChange={() => {
-                onCheckedTodo(todo._id, todo.done);
+                onCheckedTodo(todo._id, !todo.done);
               }}
             />
             <Icon />
