@@ -1,19 +1,10 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { todosSelectors, todosActions } from "../../redux/todos";
+import { useDispatch } from "react-redux";
+import { todosActions } from "../../redux/todos";
 import { StyledTodoList } from "./Todo.styled";
 import { ReactComponent as Icon } from "../icons/checkbox.svg";
 
-export default function TodoList() {
+export default function TodoList({ todos }) {
   const dispatch = useDispatch();
-  const todos = useSelector(todosSelectors.getTodos);
-
-  //const [done, setDone] = useState();
-
-  console.log(todos, "тудухи");
-  useEffect(() => {
-    dispatch(todosActions.getTodos());
-  }, [dispatch]);
 
   // const handleChange = (check) => {
   //   return !check;
@@ -27,9 +18,6 @@ export default function TodoList() {
     dispatch(todosActions.updateCheckbox({ id, done }));
   };
 
-  // const onUpdateTodo = () => {
-  //    dispatch(todosActions.updateCheckbox({ id, done }));
-  // }
   return (
     <StyledTodoList>
       {todos?.map((todo) => (
@@ -57,14 +45,6 @@ export default function TodoList() {
           >
             Delete todo
           </button>
-
-          {/* <button
-            onClick={() => {
-              onUpdateTodo();
-            }}
-          >
-            Update todo
-          </button> */}
         </li>
       ))}
     </StyledTodoList>

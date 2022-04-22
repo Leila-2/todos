@@ -10,9 +10,9 @@ import {
 
 export const getTodos = createAsyncThunk(
   "todos/getTodos",
-  async (_, { rejectWithValue }) => {
+  async (page, { rejectWithValue }) => {
     try {
-      const todos = await getAllTodos();
+      const todos = await getAllTodos(page);
       console.log(todos);
       return todos;
     } catch (error) {
@@ -70,6 +70,8 @@ export const update = createAsyncThunk(
       const res = await updateTodo(id, todo);
       console.log(res);
       return res;
-    } catch (error) {}
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );

@@ -1,9 +1,7 @@
 import Container from "./components/GlobalStyles/Container/Container";
 import { GlobalStyles } from "./components/GlobalStyles/GlobalStyles";
-//import { updateStatus, createTodo } from './services/api'
 import Header from "./components/Header/Header";
-import TodoEditor from "./components/Todos/TodoEditor";
-import TodoList from "./components/Todos/TodoList";
+import Todos from "./components/Todos/Todos";
 
 function App() {
   return (
@@ -11,8 +9,7 @@ function App() {
       <GlobalStyles />
       <Container>
         <Header />
-        <TodoEditor />
-        <TodoList />
+        <Todos />
       </Container>
     </div>
   );
