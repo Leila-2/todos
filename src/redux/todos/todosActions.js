@@ -49,8 +49,8 @@ export const deleteTodo = createAsyncThunk(
 
 export const updateCheckbox = createAsyncThunk(
   "todos/updateStatus",
-  async (data, { rejectWithValue }) => {
-    const { id, done } = data;
+  async ({ id, done }, { rejectWithValue }) => {
+    // const { id, done } = data;
     try {
       console.log(id, "Its an id", done, "done");
       await updateStatus(id, done);

@@ -24,29 +24,32 @@ export default function TodoList() {
   };
   const onCheckedTodo = (id, done) => {
     console.log(id, "id", done, "done");
-    dispatch(todosActions.updateCheckbox(id, done));
+    dispatch(todosActions.updateCheckbox({ id, done }));
   };
 
   return (
     <StyledTodoList>
       {todos?.map((todo) => (
         <li key={todo._id}>
-          <input
-            type="checkbox"
-            checked={todo.done}
-            onChange={() => {
-              onCheckedTodo(todo._id, todo.done);
-            }}
-          />
+          <label>
+            <input
+              type="checkbox"
+              checked={todo.done}
+              // name="done"
+              onChange={() => {
+                onCheckedTodo(todo._id, todo.done);
+              }}
+            />
+            <Icon />
+          </label>
 
-          <button
+          {/* <button
             onClick={() => {
               onCheckedTodo(todo._id, todo.done);
             }}
           >
             Check
-          </button>
-          <Icon />
+          </button> */}
 
           <p>{todo.name}</p>
           <button

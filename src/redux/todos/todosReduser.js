@@ -11,7 +11,7 @@ const entities = createReducer([], {
   [deleteTodo.fulfilled]: (state, { payload }) =>
     state.filter(({ _id }) => _id !== payload),
   [updateCheckbox.fulfilled]: (state, { payload }) =>
-    // console.log('Its a payload', payload)
+    //console.log('Its a payload', payload)
     state.map((todo) =>
       todo._id === payload ? { ...todo, done: !todo.done } : todo
     ),

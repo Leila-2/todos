@@ -33,8 +33,8 @@ export async function updateTodo(id, todo) {
 export async function updateStatus(id, done) {
   try {
     console.log("Its done", done, "Its an id", id);
-    const res = await axios.patch(`/todos/${id}`, { done: done });
-    console.log(res, "res");
+    await axios.patch(`/todos/${id}`, { done: !done });
+    console.log(done, "res done");
     return done;
   } catch (error) {
     console.log(error);
