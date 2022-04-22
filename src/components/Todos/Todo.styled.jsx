@@ -46,6 +46,7 @@ export const StyledTodoList = styled.ul`
     height: 42px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     border-bottom: 0.7px dashed #979797;
     color: #ffffff;
@@ -54,6 +55,28 @@ export const StyledTodoList = styled.ul`
     }
     :first-child {
       margin-top: 0px;
+    }
+    div {
+      display: flex;
+      align-items: center;
+    }
+
+    button {
+    background-color:#D05757;
+    color: #fff;
+    font-weight: 600;
+    font-size:14px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom:5px;
+
+    transition-property: margin-bottom;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    :focus,
+    :hover {
+     margin-bottom:20px
     }
   }
 
@@ -84,11 +107,12 @@ export const StyledTodoList = styled.ul`
     height: 40px;
     fill: #303841;
 
-    transition-property: margin-bottom;
+    transition-property: width, height;
     transition-duration: 500ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     :hover {
-      margin-bottom: 30px;
+      width: 45px;
+      height: 45px;
     }
   }
 `;

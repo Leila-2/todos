@@ -23,8 +23,8 @@ export async function createTodo(name) {
 
 export async function updateTodo(id, todo) {
   try {
-    const res = await axios.post(`/todos/${id}`, { todo });
-    return res;
+    const { data } = await axios.post(`/todos/${id}`, { todo });
+    return data;
   } catch (error) {
     console.log(error);
   }

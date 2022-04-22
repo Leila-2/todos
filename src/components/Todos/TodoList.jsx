@@ -27,31 +27,29 @@ export default function TodoList() {
     dispatch(todosActions.updateCheckbox({ id, done }));
   };
 
+  // const onUpdateTodo = () => {
+  //    dispatch(todosActions.updateCheckbox({ id, done }));
+  // }
   return (
     <StyledTodoList>
       {todos?.map((todo) => (
         <li key={todo._id}>
-          <label>
-            <input
-              type="checkbox"
-              checked={todo.done}
-              // name="done"
-              onChange={() => {
-                onCheckedTodo(todo._id, !todo.done);
-              }}
-            />
-            <Icon />
-          </label>
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                checked={todo.done}
+                // name="done"
+                onChange={() => {
+                  onCheckedTodo(todo._id, !todo.done);
+                }}
+              />
+              <Icon />
+            </label>
 
-          {/* <button
-            onClick={() => {
-              onCheckedTodo(todo._id, todo.done);
-            }}
-          >
-            Check
-          </button> */}
+            <p>{todo.name}</p>
+          </div>
 
-          <p>{todo.name}</p>
           <button
             onClick={() => {
               onDeleteTodo(todo._id);
@@ -59,6 +57,14 @@ export default function TodoList() {
           >
             Delete todo
           </button>
+
+          {/* <button
+            onClick={() => {
+              onUpdateTodo();
+            }}
+          >
+            Update todo
+          </button> */}
         </li>
       ))}
     </StyledTodoList>

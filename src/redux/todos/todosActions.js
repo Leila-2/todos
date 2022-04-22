@@ -4,6 +4,7 @@ import {
   createTodo,
   removeTodo,
   updateStatus,
+  updateTodo,
 } from "../../services/api";
 //removeTodo, updateStatus, updateTodo, createTodo
 
@@ -59,5 +60,16 @@ export const updateCheckbox = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error);
     }
+  }
+);
+
+export const update = createAsyncThunk(
+  "todos/updateTodo",
+  async ({ id, todo }, { rejectWithValue }) => {
+    try {
+      const res = await updateTodo(id, todo);
+      console.log(res);
+      return res;
+    } catch (error) {}
   }
 );
