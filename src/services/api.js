@@ -4,9 +4,7 @@ axios.defaults.baseURL = "https://todos-b.herokuapp.com/api";
 
 export async function getAllTodos(page) {
   try {
-    // console.log(page, 'page')
     const { data } = await axios.get(`/todos?page=${page}`);
-    //console.log(data);
     return data;
   } catch (error) {
     console.log(error);

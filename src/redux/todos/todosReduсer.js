@@ -10,11 +10,13 @@ import {
 //const initialState = [];
 
 const entities = createReducer([], {
-  [getTodos.fulfilled]: (state, action) => {
-    state.todos = [...state, action.payload];
+  [getTodos.fulfilled]: (state, { payload }) => {
+    if (payload) {
+      return [...state, ...payload];
+    }
   },
   [addTodo.fulfilled]: (state, { payload }) => {
-    return [...state, payload];
+    return [payload, ...state];
   },
   [deleteTodo.fulfilled]: (state, { payload }) =>
     state.filter(({ _id }) => _id !== payload),

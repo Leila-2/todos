@@ -10,8 +10,6 @@ export default function TodoEditor() {
 
   const handleChange = (e) => setMessage(e.target.value);
 
-  console.log(message);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 

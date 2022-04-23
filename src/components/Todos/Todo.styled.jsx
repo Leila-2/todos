@@ -1,5 +1,24 @@
 import styled from "styled-components";
 
+export const LoadMoreBtn = styled.button`
+  background-color: #4a5a65;
+  color: #ea9215;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 15px;
+  border-radius: 5px;
+
+  display: block;
+  margin: 15px auto;
+  transition-property: margin-bottom;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  :focus,
+  :hover {
+    margin-bottom: 20px;
+  }
+`;
 export const StyledTodoEd = styled.form`
   margin-top: 100px;
   border-bottom: 0.7px dashed #979797;
