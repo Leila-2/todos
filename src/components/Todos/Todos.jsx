@@ -15,6 +15,7 @@ export default function Todos() {
   useEffect(() => {
     test.current === 0 && dispatch(todosActions.getTodos(page));
     test.current = 0;
+    console.log(test.current);
   }, [page, dispatch]);
 
   const loadMore = () => {

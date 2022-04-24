@@ -13,7 +13,6 @@ export async function getAllTodos(page = 1) {
 export async function createTodo(name) {
   try {
     const { data } = await axios.post("/todos", { name });
-
     return data;
   } catch (error) {
     console.log(error);
