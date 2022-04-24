@@ -11,9 +11,7 @@ import {
 
 const entities = createReducer([], {
   [getTodos.fulfilled]: (state, { payload }) => {
-    if (payload) {
-      return [...state, ...payload];
-    }
+    return [...state, ...payload];
   },
   [addTodo.fulfilled]: (state, { payload }) => {
     return [payload, ...state];
