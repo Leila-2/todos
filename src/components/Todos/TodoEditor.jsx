@@ -41,7 +41,7 @@ export default function TodoEditor() {
       <input
         autoComplete="off"
         autoFocus
-        placeholder="What needs to be done ?"
+        placeholder="What"
         maxLength="64"
         type="text"
         value={message}
