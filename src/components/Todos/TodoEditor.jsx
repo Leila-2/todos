@@ -8,20 +8,18 @@ export default function TodoEditor() {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
 
-  const handleChange = (e) => setMessage(e.target.value);
+  const handleChange = (e) => {
+    if (message === "") {
+      toast.warning("Create todo");
+    }
+    setMessage(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (message === "") {
-      toast("Create new todo!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
+      toast.warning("Create todo");
     }
 
     dispatch(todosActions.addTodo(message));

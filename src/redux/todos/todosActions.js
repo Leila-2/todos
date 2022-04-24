@@ -50,7 +50,6 @@ export const updateCheckbox = createAsyncThunk(
   async ({ id, done }, { rejectWithValue }) => {
     try {
       const res = await updateStatus(id, done);
-
       return res;
     } catch (error) {
       return rejectWithValue(error);

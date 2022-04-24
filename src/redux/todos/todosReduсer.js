@@ -19,12 +19,10 @@ const entities = createReducer([], {
   [deleteTodo.fulfilled]: (state, { payload }) =>
     state.filter(({ _id }) => _id !== payload),
   [updateCheckbox.fulfilled]: (state, { payload }) =>
-    //console.log('Its a payload.done', payload.done)
     state.map((todo) =>
       todo._id === payload._id ? { ...todo, done: payload.done } : todo
     ),
   [update.fulfilled]: (state, { payload }) =>
-    //console.log('Its a payload.done', payload.done)
     state.map((todo) =>
       todo._id === payload._id ? { ...todo, name: payload.name } : todo
     ),

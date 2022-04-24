@@ -10,7 +10,6 @@ export default function TodoList({ todos }) {
     dispatch(todosActions.deleteTodo(id));
   };
   const onCheckedTodo = (id, done) => {
-    console.log(id, "id", done, "done");
     dispatch(todosActions.updateCheckbox({ id, done }));
   };
 
