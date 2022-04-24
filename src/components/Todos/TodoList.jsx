@@ -6,10 +6,6 @@ import { ReactComponent as Icon } from "../icons/checkbox.svg";
 export default function TodoList({ todos }) {
   const dispatch = useDispatch();
 
-  // const handleChange = (check) => {
-  //   return !check;
-  // };
-
   const onDeleteTodo = (id) => {
     dispatch(todosActions.deleteTodo(id));
   };
@@ -27,7 +23,6 @@ export default function TodoList({ todos }) {
               <input
                 type="checkbox"
                 checked={todo.done}
-                // name="done"
                 onChange={() => {
                   onCheckedTodo(todo._id, !todo.done);
                 }}

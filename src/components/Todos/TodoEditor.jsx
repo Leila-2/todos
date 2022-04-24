@@ -26,11 +26,6 @@ export default function TodoEditor() {
 
     dispatch(todosActions.addTodo(message));
     setMessage("");
-
-    // // Просто диспатч происходит слишком быстро, поэтому обернула в сеттаймаут
-    // setTimeout(() => {
-    //   dispatch(todosActions.getTodos());
-    // }, 1000);
   };
 
   const handleKeyUp = (event) => {
