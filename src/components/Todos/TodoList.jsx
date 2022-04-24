@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { todosActions } from "../../redux/todos";
+import { todosOperations } from "../../redux/todos";
 import { StyledTodoList } from "./Todo.styled";
 import { ReactComponent as Icon } from "../icons/checkbox.svg";
 
@@ -7,10 +7,10 @@ export default function TodoList({ todos }) {
   const dispatch = useDispatch();
 
   const onDeleteTodo = (id) => {
-    dispatch(todosActions.deleteTodo(id));
+    dispatch(todosOperations.deleteTodo(id));
   };
   const onCheckedTodo = (id, done) => {
-    dispatch(todosActions.updateCheckbox({ id, done }));
+    dispatch(todosOperations.updateCheckbox({ id, done }));
   };
 
   return (

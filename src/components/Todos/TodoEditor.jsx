@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { toast } from "react-toastify";
-import { todosActions } from "../../redux/todos";
+import { toast, ToastContainer } from "react-toastify";
+import { todosOperations } from "../../redux/todos";
 import { useDispatch } from "react-redux";
 import { StyledTodoEd } from "./Todo.styled";
 
@@ -9,9 +9,6 @@ export default function TodoEditor() {
   const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
-    if (message === "") {
-      toast.warning("Create todo");
-    }
     setMessage(e.target.value);
   };
 
@@ -20,34 +17,37 @@ export default function TodoEditor() {
 
     if (message === "") {
       toast.warning("Create todo");
+      return;
     }
 
-    dispatch(todosActions.addTodo(message));
+    dispatch(todosOperations.addTodo(message));
     setMessage("");
   };
 
   const handleKeyUp = (event) => {
     if (event.keyCode === 13) {
-      console.log("Key Up");
     }
   };
 
   return (
-    <StyledTodoEd
-      className="TodoEditor"
-      onKeyUp={handleKeyUp}
-      onSubmit={handleSubmit}
-    >
-      <input
-        autoComplete="off"
-        autoFocus
-        placeholder="What"
-        maxLength="64"
-        type="text"
-        value={message}
-        onChange={handleChange}
-      />
-      <button type="submit">Add todo</button>
-    </StyledTodoEd>
+    <>
+      <ToastContainer />
+      <StyledTodoEd
+        className="TodoEditor"
+        onKeyUp={handleKeyUp}
+        onSubmit={handleSubmit}
+      >
+        <input
+          autoComplete="off"
+          autoFocus
+          placeholder="What"
+          maxLength="64"
+          type="text"
+          value={message}
+          onChange={handleChange}
+        />
+        <button type="submit">Add todo</button>
+      </StyledTodoEd>
+    </>
   );
 }
