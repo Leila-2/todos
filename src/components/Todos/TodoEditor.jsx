@@ -40,8 +40,8 @@ export default function TodoEditor() {
         <input
           autoComplete="off"
           autoFocus
-          placeholder="What"
-          maxLength="64"
+          placeholder="What needs to be done?"
+          maxLength={30}
           type="text"
           value={message}
           onChange={handleChange}
